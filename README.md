@@ -57,6 +57,8 @@ sensor:
       name: "kWh Charged Total"
     battery_discharged_energy:
       name: "kWh Discharged Total"
+    battery_life:
+      name: "Battery Life"
 ```
 
 Not all sensors need to be added.

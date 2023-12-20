@@ -41,7 +41,7 @@ int getval(const char*& cursor)
   }
   return *val;
 }
-  
+
 
 JuncTekKGF::JuncTekKGF(unsigned address, bool invert_current)
   : address_(address)
@@ -101,7 +101,7 @@ void JuncTekKGF::handle_status(const char* buffer)
   const int address = getval(cursor);
   if (address != this->address_)
     return;
- 
+
   const int checksum = getval(cursor);
   if (! verify_checksum(checksum, cursor))
     return;
@@ -165,11 +165,12 @@ void JuncTekKGF::handle_status(const char* buffer)
     float dischargedEnergy = ampHourTotalUsed * (3.2 * 18) / 1000;  // Nominal voltange on cell * count off cell;
     this->battery_discharged_energy_sensor_->publish_state(dischargedEnergy);
   }
-  //  if (battery_life_sensor_)
-    //    this->battery_life_sensor_->publish_state(batteryLifeMinutes);
 
-  //  if (runtime_sensor_)
-  //    this->runtime_sensor_->publish_state(runtimeSeconds);
+  if (battery_life_sensor_)
+    this->battery_life_sensor_->publish_state(batteryLifeMinutes);
+
+  if (runtime_sensor_)
+    this->runtime_sensor_->publish_state(runtimeSeconds);
 
   this->last_stats_ = esphome::millis();
 }

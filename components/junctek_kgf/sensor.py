@@ -140,13 +140,13 @@ CONFIG_SCHEMA = cv.All(
                 device_class=DEVICE_CLASS_POWER,
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
-            # cv.Optional(CONF_BATTERY_LIFE): sensor.sensor_schema(
-            #     unit_of_measurement=UNIT_MINUTE,
-            #     icon=ICON_TIMER,
-            #     accuracy_decimals=2,
-            #     device_class=DEVICE_CLASS_DURATION,
-            #     state_class=STATE_CLASS_MEASUREMENT,
-            # ),
+            cv.Optional(CONF_BATTERY_LIFE): sensor.sensor_schema(
+                unit_of_measurement=UNIT_MINUTE,
+                icon=ICON_TIMER,
+                accuracy_decimals=2,
+                device_class=DEVICE_CLASS_DURATION,
+                state_class=STATE_CLASS_MEASUREMENT,
+            ),
             cv.Optional(CONF_BATTERY_CHARGED_ENERGY): sensor.sensor_schema(
                 unit_of_measurement=UNIT_KILOWATT_HOURS,
                 icon="mdi:lightning-bolt",

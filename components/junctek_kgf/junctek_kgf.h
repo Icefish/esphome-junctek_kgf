@@ -32,8 +32,8 @@ public:
   void set_relay_status_sensor(sensor::Sensor *relay_status_sensor) { relay_status_sensor_ = relay_status_sensor; }
 
   void set_power_sensor(sensor::Sensor *power_sensor) { power_sensor_ = power_sensor; }
-//  void set_battery_life_sensor(sensor::Sensor *battery_life_sensor) { battery_life_sensor_ = battery_life_sensor; }
-//  void set_runtime_sensor(sensor::Sensor *runtime_sensor) { runtime_sensor_ = runtime_sensor; }
+  void set_battery_life_sensor(sensor::Sensor *battery_life_sensor) { battery_life_sensor_ = battery_life_sensor; }
+  void set_runtime_sensor(sensor::Sensor *runtime_sensor) { runtime_sensor_ = runtime_sensor; }
 
   void dump_config() override;
   void loop() override;
@@ -69,8 +69,8 @@ protected:
   sensor::Sensor* relay_status_sensor_{nullptr};
 
   sensor::Sensor* power_sensor_{nullptr};
-//  sensor::Sensor* runtime_sensor_{nullptr};
-//  sensor::Sensor* battery_life_sensor_{nullptr};
+  sensor::Sensor* runtime_sensor_{nullptr};
+  sensor::Sensor* battery_life_sensor_{nullptr};
 
   static constexpr int MAX_LINE_LEN = 120;
   std::array<char, MAX_LINE_LEN> line_buffer_;
